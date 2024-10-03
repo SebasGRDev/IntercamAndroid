@@ -15,6 +15,7 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
+import androidx.paging.compose.collectAsLazyPagingItems
 import com.sebasgrdev.intercamandroid.ui.theme.Green
 import com.sebasgrdev.intercamandroid.viewmodel.CharactersViewModel
 
@@ -24,9 +25,7 @@ fun ScreenRickAndMorty(
     navController: NavHostController,
     viewModel: CharactersViewModel = hiltViewModel()
 ) {
-
-    val state by viewModel.allCharacters.collectAsState()
-    Log.d("items", "${state.size}")
+    val state = viewModel.characters.collectAsLazyPagingItems()
 
     Column(
         modifier = modifier
@@ -41,8 +40,10 @@ fun ScreenRickAndMorty(
     ) {
         TopBar()
         LazyColumn {
-            items(state) {
-                ItemCharacters(it)
+            items(state.itemCount) {
+                state[it]?.let { characterModel ->
+                    ItemCharacters(characterModel)
+                }
             }
         }
     }

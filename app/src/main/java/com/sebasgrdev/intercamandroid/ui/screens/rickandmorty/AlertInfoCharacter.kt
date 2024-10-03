@@ -23,11 +23,12 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
 import coil.compose.AsyncImage
-import com.sebasgrdev.intercamandroid.model.data.Result
+import com.sebasgrdev.intercamandroid.model.data.response.Result
+import com.sebasgrdev.intercamandroid.ui.screens.rickandmorty.model.CharacterModel
 import com.sebasgrdev.intercamandroid.ui.theme.Green
 
 @Composable
-fun AlertInfoCharacter(characters: Result, show: Boolean, onDismiss: () -> Unit) {
+fun AlertInfoCharacter(characters: CharacterModel, show: Boolean, onDismiss: () -> Unit) {
     if (show) {
         Dialog(onDismissRequest = { onDismiss() }) {
             val colorStatus = when(characters.status) {

@@ -1,4 +1,4 @@
-package com.sebasgrdev.intercamandroid.model.data
+package com.sebasgrdev.intercamandroid.model.data.response
 
 data class Location(
     val name: String,
