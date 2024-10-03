@@ -15,7 +15,9 @@ import androidx.navigation.compose.rememberNavController
 import com.sebasgrdev.intercamandroid.ui.navigation.NavigationComponent
 import com.sebasgrdev.intercamandroid.ui.screens.autoriza3.ScreenIAutoriza
 import com.sebasgrdev.intercamandroid.ui.theme.IntercamAndroidTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     @RequiresApi(Build.VERSION_CODES.N)
     override fun onCreate(savedInstanceState: Bundle?) {

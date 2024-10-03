@@ -2,6 +2,7 @@ package com.sebasgrdev.intercamandroid.ui.screens.rickandmorty
 
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
@@ -22,6 +23,7 @@ fun TopBar() {
                 text = "Rick and Morty",
                 modifier = Modifier.fillMaxWidth(),
                 fontSize = 24.sp,
+                style = MaterialTheme.typography.titleLarge,
                 textAlign = TextAlign.Center,
                 fontWeight = FontWeight.Bold
             )
