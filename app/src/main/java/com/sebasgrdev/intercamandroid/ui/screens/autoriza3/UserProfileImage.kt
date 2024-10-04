@@ -53,7 +53,7 @@ fun UserProfileImage(modifier: Modifier, imageUri: Uri?) {
                 model = imageUri,
                 contentDescription = "Foto de perfil",
                 modifier = modifier
-                    .size(64.dp)
+                    .size(90.dp)
                     .border(4.dp, Color.White, CircleShape)
                     .clip(shape = CircleShape),
                 contentScale = ContentScale.Crop
