@@ -3,7 +3,9 @@ package com.sebasgrdev.intercamandroid.ui.screens.autoriza3
 import android.net.Uri
 import android.os.Build
 import androidx.annotation.RequiresApi
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
@@ -29,61 +31,63 @@ fun ScreenIAutoriza(modifier: Modifier = Modifier, navController: NavHostControl
 
     var selectedImageUri by remember { mutableStateOf<Uri?>(null) }
 
-    ConstraintLayout(modifier.fillMaxSize()) {
-        val (topBarUser, userProfileImage, noticePendingInfo, paymentList, supportButton, editPhoto, goToRMScreen) = createRefs()
+    Column(modifier = modifier.fillMaxSize()) {
+        ConstraintLayout(Modifier.fillMaxSize()) {
+            val (topBarUser, userProfileImage, noticePendingInfo, paymentList, supportButton, editPhoto, goToRMScreen) = createRefs()
 
 
-        TopBarUserInfo(modifier.constrainAs(topBarUser) {
-            start.linkTo(parent.start)
-            end.linkTo(parent.end)
-            top.linkTo(parent.top)
-            bottom.linkTo(noticePendingInfo.top)
-        })
-        UserProfileImage(modifier = Modifier.constrainAs(userProfileImage) {
-            start.linkTo(parent.start)
-            end.linkTo(parent.end)
-            top.linkTo(topBarUser.top)
-            bottom.linkTo(noticePendingInfo.bottom)
-        }, imageUri = selectedImageUri)
-        EditImageProfile(modifier = Modifier.constrainAs(editPhoto) {
-            top.linkTo(userProfileImage.top)
-            start.linkTo(userProfileImage.end)
-        }, onImageSelected = { uri -> selectedImageUri = uri })
-        NoticePendingInfo(Modifier.constrainAs(noticePendingInfo) {
-            start.linkTo(parent.start)
-            end.linkTo(parent.end)
-            top.linkTo(topBarUser.bottom)
-            bottom.linkTo(paymentList.top)
-        })
-        PaymentList(Modifier.constrainAs(paymentList) {
-            start.linkTo(parent.start)
-            end.linkTo(parent.end)
-            top.linkTo(noticePendingInfo.bottom)
-            bottom.linkTo(supportButton.top)
-        })
-        SupportButton(Modifier.constrainAs(supportButton) {
-            start.linkTo(parent.start)
-            end.linkTo(parent.end)
-            top.linkTo(paymentList.bottom)
-            bottom.linkTo(parent.bottom)
-        })
-
-        //Botón para navegar a la pantalla de Rick and Morty
-        TextButton(onClick = {
-            navController.navigate("rickAndMortyScreen")
-        },
-            modifier = modifier.constrainAs(goToRMScreen) {
+            TopBarUserInfo(modifier.constrainAs(topBarUser) {
+                start.linkTo(parent.start)
+                end.linkTo(parent.end)
+                top.linkTo(parent.top)
+                bottom.linkTo(noticePendingInfo.top)
+            })
+            UserProfileImage(modifier = Modifier.constrainAs(userProfileImage) {
+                start.linkTo(parent.start)
+                end.linkTo(parent.end)
+                top.linkTo(topBarUser.top)
+                bottom.linkTo(noticePendingInfo.bottom)
+            }, imageUri = selectedImageUri)
+            EditImageProfile(modifier = Modifier.constrainAs(editPhoto) {
+                top.linkTo(userProfileImage.top)
+                start.linkTo(userProfileImage.end)
+            }, onImageSelected = { uri -> selectedImageUri = uri })
+            NoticePendingInfo(Modifier.constrainAs(noticePendingInfo) {
+                start.linkTo(parent.start)
+                end.linkTo(parent.end)
+                top.linkTo(topBarUser.bottom)
+                bottom.linkTo(paymentList.top)
+            })
+            PaymentList(Modifier.constrainAs(paymentList) {
+                start.linkTo(parent.start)
+                end.linkTo(parent.end)
+                top.linkTo(noticePendingInfo.bottom)
+                bottom.linkTo(supportButton.top)
+            })
+            SupportButton(Modifier.constrainAs(supportButton) {
+                start.linkTo(parent.start)
+                end.linkTo(parent.end)
                 top.linkTo(paymentList.bottom)
                 bottom.linkTo(parent.bottom)
-                start.linkTo(parent.start)
-            }) {
-            Text(text = "Go to Rick and Morty Screen ", fontSize = 12.sp, color = Color.Gray)
-            Icon(
-                painter = painterResource(R.drawable.ic_rick),
-                contentDescription = "Icono Rick",
-                modifier = Modifier.size(16.dp),
-                tint = Color.Unspecified
-            )
+            })
+
+            //Botón para navegar a la pantalla de Rick and Morty
+            TextButton(onClick = {
+                navController.navigate("rickAndMortyScreen")
+            },
+                modifier = modifier.constrainAs(goToRMScreen) {
+                    top.linkTo(paymentList.bottom)
+                    bottom.linkTo(parent.bottom)
+                    start.linkTo(parent.start)
+                }) {
+                Text(text = "Go to Rick and Morty Screen ", fontSize = 12.sp, color = Color.Gray)
+                Icon(
+                    painter = painterResource(R.drawable.ic_rick),
+                    contentDescription = "Icono Rick",
+                    modifier = Modifier.size(16.dp),
+                    tint = Color.Unspecified
+                )
+            }
         }
     }
 }

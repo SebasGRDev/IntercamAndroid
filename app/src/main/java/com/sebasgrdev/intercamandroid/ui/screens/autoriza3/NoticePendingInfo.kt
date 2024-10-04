@@ -2,9 +2,11 @@ package com.sebasgrdev.intercamandroid.ui.screens.autoriza3
 
 import android.os.Build
 import androidx.annotation.RequiresApi
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -41,7 +43,6 @@ fun NoticePendingInfo(modifier: Modifier) {
             bottom.linkTo(parent.bottom)
             start.linkTo(parent.start)
             end.linkTo(parent.end)
-            top.linkTo(infoText.bottom)
         })
     }
 }
@@ -50,13 +51,13 @@ fun NoticePendingInfo(modifier: Modifier) {
 fun FilterButton(modifier: Modifier) {
     Button(
         onClick = {},
-        modifier = modifier.padding(16.dp),
+        modifier = modifier.padding(8.dp),
         colors = ButtonDefaults.buttonColors(containerColor = Green, contentColor = Color.White)
     ) {
-        Row(Modifier.padding(vertical = 8.dp, horizontal = 16.dp), verticalAlignment = Alignment.CenterVertically) {
+        Row(Modifier.padding(8.dp), verticalAlignment = Alignment.CenterVertically) {
             Icon(painter = painterResource(R.drawable.searchfilter), contentDescription = "Filtro de búsqueda", Modifier.size(16.dp))
             Spacer(Modifier.width(8.dp))
-            Text(text = "Filtro de búsqueda", fontSize = 16.sp)
+            Text(text = "Filtro de búsqueda")
         }
 
     }
@@ -67,8 +68,8 @@ fun FilterButton(modifier: Modifier) {
 fun InfoText(modifier: Modifier) {
     val formattedDate = getFormattedDate()
 
-    Column(modifier = modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
+    Column(modifier = modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.Center) {
         Text(text = formattedDate, fontSize = 16.sp)
-        Text(text = "Tienes pagos por autorizar:", fontSize = 24.sp, fontWeight = FontWeight.ExtraBold)
+        Text(text = "Tienes pagos por autorizar:", fontSize = 16.sp, fontWeight = FontWeight.ExtraBold)
     }
 }

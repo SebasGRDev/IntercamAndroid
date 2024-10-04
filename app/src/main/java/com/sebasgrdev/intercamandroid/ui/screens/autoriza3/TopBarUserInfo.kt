@@ -4,6 +4,7 @@ import android.app.Activity
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -37,6 +38,7 @@ import com.sebasgrdev.intercamandroid.ui.theme.Green
 fun TopBarUserInfo(modifier: Modifier) {
     ConstraintLayout(modifier = modifier
         .fillMaxWidth()
+        .height(200.dp)
         .background(Green)
         .padding(8.dp)) {
 
@@ -60,12 +62,12 @@ fun ExitButton(modifier: Modifier) {
     var show by remember { mutableStateOf(false) }
     Button(onClick = { show = true }, modifier = modifier, colors = ButtonDefaults.buttonColors(containerColor = Color.Transparent)) {
 
-        Text(text = "Salir ", color = Color.White, fontSize = 16.sp, fontWeight = FontWeight.Light)
+        Text(text = "Salir ", color = Color.White, fontSize = 12.sp, fontWeight = FontWeight.Light)
         Spacer(Modifier.width(8.dp))
         Icon(
             painter = painterResource(R.drawable.cerrar_sesion),
             contentDescription = "Cerrar sesión",
-            Modifier.size(24.dp),
+            Modifier.size(16.dp),
             tint = Color.White
         )
         ConfirmExitApp(show = show, onDismiss = {show = false}, onConfirm = { show = false })
@@ -99,21 +101,19 @@ fun ConfirmExitApp(show: Boolean, onDismiss: () -> Unit, onConfirm: () -> Unit) 
 @Composable
 fun WelcomeText(userName: String, modifier: Modifier) {
     Column(modifier = modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
-        Spacer(Modifier.height(56.dp))
         Text(
             text = "Bienvenido",
             color = Color.White,
-            fontSize = 24.sp,
+            fontSize = 18.sp,
             textAlign = TextAlign.Center
         )
         Spacer(Modifier.height(8.dp))
         Text(
             text = userName,
             color = Color.White,
-            fontSize = 24.sp,
+            fontSize = 18.sp,
             textAlign = TextAlign.Center,
-            fontWeight = FontWeight.Bold
+            fontWeight = FontWeight.ExtraBold
         )
-        Spacer(Modifier.height(56.dp))
     }
 }

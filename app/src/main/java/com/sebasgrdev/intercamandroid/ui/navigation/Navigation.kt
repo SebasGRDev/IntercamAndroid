@@ -14,6 +14,6 @@ import com.sebasgrdev.intercamandroid.ui.screens.rickandmorty.ScreenRickAndMorty
 fun NavigationComponent(navController: NavHostController, innerPadding: PaddingValues) {
     NavHost(navController = navController, startDestination = "screen_main") {
         composable("screen_main") { ScreenIAutoriza(modifier = Modifier.padding(innerPadding), navController = navController) }
-        composable("rickAndMortyScreen") { ScreenRickAndMorty(modifier = Modifier.padding(innerPadding), navController = navController) }
+        composable("rickAndMortyScreen") { ScreenRickAndMorty(modifier = Modifier.padding(innerPadding)) }
     }
 }

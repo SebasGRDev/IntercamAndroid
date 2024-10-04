@@ -53,7 +53,7 @@ fun UserProfileImage(modifier: Modifier, imageUri: Uri?) {
                 model = imageUri,
                 contentDescription = "Foto de perfil",
                 modifier = modifier
-                    .size(100.dp)
+                    .size(64.dp)
                     .border(4.dp, Color.White, CircleShape)
                     .clip(shape = CircleShape),
                 contentScale = ContentScale.Crop
@@ -63,7 +63,7 @@ fun UserProfileImage(modifier: Modifier, imageUri: Uri?) {
                 painter = painterResource(R.drawable.logo_profile),
                 contentDescription = "Foto de perfil",
                 modifier = modifier
-                    .size(100.dp)
+                    .size(90.dp)
                     .border(4.dp, Color.White, CircleShape)
                     .clip(shape = CircleShape),
                 contentScale = ContentScale.Crop
